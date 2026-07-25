@@ -66,10 +66,12 @@
 
                         |
 
-                        <a href="/alunos/delete?id=<?= $aluno['id'] ?>">
-                            Excluir
-                        </a>
-
+                        <a
+    href="/alunos/delete?id=<?= $aluno['id'] ?>"
+    onclick="return confirm('Tem certeza que deseja excluir este aluno?')"
+>
+    Excluir
+</a>
                     </td>
 
                 </tr>
