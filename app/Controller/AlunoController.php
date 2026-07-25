@@ -34,25 +34,21 @@ class AlunoController
         require "../View/alunos/index.php";
     }
 
-    // READ - Buscar aluno
-    public function show($id)
-    {
-        $aluno = $this->model->buscar($id);
-
-        require "../View/alunos/show.php";
-    }
-
     // UPDATE - Exibir formulário de edição
-    public function edit($id)
+    public function edit()
     {
+        $id = $_GET['id'];
+
         $aluno = $this->model->buscar($id);
 
         require "../View/alunos/edit.php";
     }
 
     // UPDATE - Atualizar aluno
-    public function update($id)
+    public function update()
     {
+        $id = $_POST['id'];
+
         $this->model->atualizar($id, $_POST);
 
         header("Location: /alunos");
@@ -60,8 +56,10 @@ class AlunoController
     }
 
     // DELETE - Excluir aluno
-    public function delete($id)
+    public function delete()
     {
+        $id = $_GET['id'];
+
         $this->model->excluir($id);
 
         header("Location: /alunos");
