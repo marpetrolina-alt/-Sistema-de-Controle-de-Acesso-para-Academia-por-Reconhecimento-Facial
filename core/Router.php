@@ -14,7 +14,7 @@ class Router
         $this->routes['POST'][$rota] = $acao;
     }
 
-    public function dispatch($metodo, $uri)
+    public function dispatch($metodo, $uri, $pdo)
     {
         if (!isset($this->routes[$metodo][$uri])) {
             http_response_code(404);
@@ -27,7 +27,7 @@ class Router
 
         require_once "../app/Controller/$controller.php";
 
-        $objeto = new $controller();
+        $objeto = new $controller($pdo);
 
         $objeto->$metodoController();
     }
