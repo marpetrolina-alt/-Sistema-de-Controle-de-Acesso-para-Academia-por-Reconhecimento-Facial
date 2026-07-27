@@ -100,5 +100,4 @@ public/
 
 🚧 Projeto em desenvolvimento.
 
-O sistema está sendo desenvolvido como parte de um trabalho acadêmico e sua implementação ocorrerá de forma gradual, conforme os conteúdos de programação, arquitetura MVC, banco de dados e desenvolvimento web forem estudados.
-
+O sistema está sendo desenvolvido como parte de um trabalho acadêmico e sua implementação ocorrerá de forma gradual.
