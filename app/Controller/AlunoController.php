@@ -27,13 +27,22 @@ class AlunoController
     }
 
     // READ - Listar alunos
-    public function index()
-    {
-        $alunos = $this->model->listar();
+   public function index()
+{
+    session_start();
 
-        require "../View/alunos/index.php";
+    if (!isset($_SESSION['usuario_id'])) {
+
+        header("Location: /login");
+
+        exit;
     }
 
+    $alunos = $this->model->listar();
+
+    require "../View/alunos/index.php";
+}
+    
     // UPDATE - Exibir formulário de edição
     public function edit()
     {
