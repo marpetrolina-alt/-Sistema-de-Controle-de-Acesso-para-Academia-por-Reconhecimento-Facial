@@ -1,38 +1,19 @@
 <?php
 
-require_once "../Model/Aluno.php";
+require_once __DIR__ . "/../Models/Aluno.php";
 
 class AlunoController
 {
     private $model;
 
-    // Verifica se o usuário está logado
-
     private function verificarLogin()
-{
-    if (session_status() === PHP_SESSION_NONE) {
-
-        session_set_cookie_params([
-            'httponly' => true,
-            'secure' => false,
-            'samesite' => 'Lax'
-        ]);
-
-        session_start();
-    }
-
-    if (!isset($_SESSION['usuario_id'])) {
-
-        header("Location: /login");
-
-        exit;
-    }
-}
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (!isset($_SESSION['usuario_id'])) {
-
-            header("Location: /login");
-
+            header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/login");
             exit;
         }
     }
@@ -47,7 +28,7 @@ class AlunoController
     {
         $this->verificarLogin();
 
-        require "../View/alunos/create.php";
+        require __DIR__ . "/../View/alunos/create.php";
     }
 
     // CREATE - Salvar novo aluno
@@ -57,8 +38,7 @@ class AlunoController
 
         $this->model->cadastrar($_POST);
 
-        header("Location: /alunos");
-
+        header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos");
         exit;
     }
 
@@ -69,7 +49,7 @@ class AlunoController
 
         $alunos = $this->model->listar();
 
-        require "../View/alunos/index.php";
+        require __DIR__ . "/../View/alunos/index.php";
     }
 
     // UPDATE - Exibir formulário de edição
@@ -81,7 +61,7 @@ class AlunoController
 
         $aluno = $this->model->buscar($id);
 
-        require "../View/alunos/edit.php";
+        require __DIR__ . "/../View/alunos/edit.php";
     }
 
     // UPDATE - Atualizar aluno
@@ -93,8 +73,7 @@ class AlunoController
 
         $this->model->atualizar($id, $_POST);
 
-        header("Location: /alunos");
-
+        header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos");
         exit;
     }
 
@@ -107,8 +86,7 @@ class AlunoController
 
         $this->model->excluir($id);
 
-        header("Location: /alunos");
-
+        header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos");
         exit;
     }
 }
