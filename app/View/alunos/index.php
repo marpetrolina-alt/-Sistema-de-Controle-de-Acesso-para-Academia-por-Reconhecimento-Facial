@@ -8,6 +8,10 @@
 </head>
 
 <body>
+    
+    <a href="/logout">
+    Sair
+</a>
 
     <h1>Alunos da Academia</h1>
 
