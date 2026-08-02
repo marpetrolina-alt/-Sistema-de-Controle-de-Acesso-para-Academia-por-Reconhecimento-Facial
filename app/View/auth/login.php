@@ -13,7 +13,7 @@
 
     <h1>Login</h1>
 
-    <form method="POST" action="/login/autenticar">
+     <form method="POST" action="/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/login/autenticar">
 
         <div>
 
