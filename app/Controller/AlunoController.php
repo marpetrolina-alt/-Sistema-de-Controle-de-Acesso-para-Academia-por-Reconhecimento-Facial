@@ -6,6 +6,21 @@ class AlunoController
 {
     private $model;
 
+    // Verifica se o usuário está logado
+    private function verificarLogin()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['usuario_id'])) {
+
+            header("Location: /login");
+
+            exit;
+        }
+    }
+
     public function __construct($pdo)
     {
         $this->model = new Aluno($pdo);
@@ -14,38 +29,38 @@ class AlunoController
     // CREATE - Exibir formulário de cadastro
     public function create()
     {
+        $this->verificarLogin();
+
         require "../View/alunos/create.php";
     }
 
     // CREATE - Salvar novo aluno
     public function store()
     {
+        $this->verificarLogin();
+
         $this->model->cadastrar($_POST);
 
         header("Location: /alunos");
+
         exit;
     }
 
     // READ - Listar alunos
-   public function index()
-{
-    session_start();
+    public function index()
+    {
+        $this->verificarLogin();
 
-    if (!isset($_SESSION['usuario_id'])) {
+        $alunos = $this->model->listar();
 
-        header("Location: /login");
-
-        exit;
+        require "../View/alunos/index.php";
     }
 
-    $alunos = $this->model->listar();
-
-    require "../View/alunos/index.php";
-}
-    
     // UPDATE - Exibir formulário de edição
     public function edit()
     {
+        $this->verificarLogin();
+
         $id = $_GET['id'];
 
         $aluno = $this->model->buscar($id);
@@ -56,22 +71,28 @@ class AlunoController
     // UPDATE - Atualizar aluno
     public function update()
     {
+        $this->verificarLogin();
+
         $id = $_POST['id'];
 
         $this->model->atualizar($id, $_POST);
 
         header("Location: /alunos");
+
         exit;
     }
 
     // DELETE - Excluir aluno
     public function delete()
     {
+        $this->verificarLogin();
+
         $id = $_GET['id'];
 
         $this->model->excluir($id);
 
         header("Location: /alunos");
+
         exit;
     }
 }
