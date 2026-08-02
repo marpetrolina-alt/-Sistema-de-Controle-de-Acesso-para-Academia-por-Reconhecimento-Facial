@@ -21,12 +21,13 @@
                 E-mail:
             </label>
 
-            <input
-                type="email"
-                id="email"
-                name="email"
-                required
-            >
+         <input
+    type="email"
+    id="email"
+    name="email"
+    value="<?php echo htmlspecialchars($_COOKIE['lembrar_email'] ?? ''); ?>"
+    required
+>
 
         </div>
 
