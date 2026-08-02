@@ -9,9 +9,9 @@
 
 <body>
     
-    <a href="/logout">
-    Sair
-</a>
+   
+<a href="/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/logout">Sair</a>
+
 
     <h1>Alunos da Academia</h1>
 
