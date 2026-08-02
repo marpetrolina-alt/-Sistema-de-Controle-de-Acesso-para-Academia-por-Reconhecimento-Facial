@@ -49,6 +49,22 @@
 
         <br>
 
+        <div>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="lembrar"
+                    value="1"
+                >
+
+                Lembrar meu e-mail
+            </label>
+
+        </div>
+
+        <br>
+
         <button type="submit">
             Entrar
         </button>
