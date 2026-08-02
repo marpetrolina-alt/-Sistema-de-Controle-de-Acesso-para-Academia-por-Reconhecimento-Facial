@@ -7,11 +7,27 @@ class AlunoController
     private $model;
 
     // Verifica se o usuário está logado
+
     private function verificarLogin()
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+{
+    if (session_status() === PHP_SESSION_NONE) {
+
+        session_set_cookie_params([
+            'httponly' => true,
+            'secure' => false,
+            'samesite' => 'Lax'
+        ]);
+
+        session_start();
+    }
+
+    if (!isset($_SESSION['usuario_id'])) {
+
+        header("Location: /login");
+
+        exit;
+    }
+}
 
         if (!isset($_SESSION['usuario_id'])) {
 
