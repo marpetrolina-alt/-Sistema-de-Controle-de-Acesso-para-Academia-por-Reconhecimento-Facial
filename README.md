@@ -1,4 +1,5 @@
-# Sistema de Controle de Acesso para Academia por Reconhecimento Facial
+# Sistema de Controle de Acesso para Academia por Reconhecimento Facial 
+Atualizacoes do dia 02/08/2026  no final.
 
 ## Descrição do Projeto
 
@@ -101,3 +102,26 @@ public/
 🚧 Projeto em desenvolvimento.
 
 O sistema está sendo desenvolvido como parte de um trabalho acadêmico e sua implementação ocorrerá de forma gradual.
+
+
+02/08/2026
+# Resumo das Atividades Desenvolvidas
+
+Durante o desenvolvimento do projeto do Sistema de Controle de Acesso para Academia por Reconhecimento Facial, foram realizadas melhorias na estrutura, organização e funcionamento do sistema, utilizando PHP e arquitetura MVC.
+
+Foi implementada e organizada a estrutura do projeto, separando as responsabilidades entre Controllers, Models, Views, rotas e conexão com o banco de dados. Também foram configurados os arquivos responsáveis pelo gerenciamento das rotas e pela conexão com o banco de dados MySQL.
+
+Foi desenvolvido o sistema de autenticação de usuários, permitindo o acesso por meio de e-mail e senha. As senhas são armazenadas de forma protegida utilizando criptografia por hash, e o sistema utiliza sessões para controlar o acesso dos usuários autenticados.
+
+Também foi implementada a funcionalidade de lembrar o e-mail do usuário por meio de cookies, além das funções de login e logout. Após a autenticação, o usuário é direcionado para a área de gerenciamento de alunos.
+
+Foi realizada a proteção da área de alunos, impedindo que usuários não autenticados tenham acesso às páginas restritas. Quando um usuário tenta acessar a área protegida sem estar logado, o sistema o redireciona automaticamente para a tela de login.
+
+Foram realizadas correções nos caminhos dos arquivos e na estrutura dos Controllers, Models e Views, garantindo que os arquivos sejam localizados corretamente pelo sistema. Também foi ajustado o arquivo principal de entrada (`index.php`) para identificar automaticamente o caminho de instalação do projeto, permitindo que o sistema seja executado mesmo quando o projeto é colocado em diferentes pastas.
+
+O sistema foi testado localmente utilizando o XAMPP e o banco de dados MySQL. Foram realizados testes de login, criação de sessão, acesso à área de alunos, logout e tentativa de acesso à área protegida sem autenticação.
+
+Após as alterações, os arquivos atualizados foram enviados para o repositório do projeto no GitHub. Em seguida, foi realizado um novo download do projeto diretamente do GitHub e os testes foram repetidos em uma nova cópia do sistema. Dessa forma, foi confirmado que as alterações estão sincronizadas com o repositório e que o projeto continua funcionando corretamente após ser baixado novamente.
+
+Ao final dos testes, foi confirmado o funcionamento do fluxo de autenticação, desde o login até o logout, incluindo a proteção das páginas restritas e o redirecionamento de usuários não autenticados para a tela de login.
+
