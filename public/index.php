@@ -1,22 +1,23 @@
 <?php
 
-require_once "../core/Database.php";
-require_once "../core/Router.php";
+require_once __DIR__ . "/../core/Database.php";
+require_once __DIR__ . "/../core/Router.php";
 
 $pdo = Database::conectar();
 
 $router = new Router();
 
-require_once "../routes/web.php";
+require_once __DIR__ . "/../routes/web.php";
 
 $uri = parse_url(
     $_SERVER['REQUEST_URI'],
     PHP_URL_PATH
 );
 
-$base = '/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public';
+// Caminho da pasta public onde o projeto está instalado
+$base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
-if (str_starts_with($uri, $base)) {
+if ($base !== '' && str_starts_with($uri, $base)) {
     $uri = substr($uri, strlen($base));
 }
 
