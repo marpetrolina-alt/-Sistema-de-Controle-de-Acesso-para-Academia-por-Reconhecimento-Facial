@@ -4,17 +4,12 @@ class Database
 {
     public static function conectar()
     {
-        $host = "localhost";
-        $dbname = "academia";
-        $user = "root";
-        $password = "";
-
         try {
 
             $pdo = new PDO(
-                "mysql:host=$host;dbname=$dbname;charset=utf8",
-                $user,
-                $password
+                "mysql:host=localhost;dbname=academia;charset=utf8mb4",
+                "root",
+                ""
             );
 
             $pdo->setAttribute(
