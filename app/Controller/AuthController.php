@@ -19,10 +19,15 @@ class AuthController
     }
 
     // Realizar autenticação
-    public function autenticar()
+   public function autenticar()
 {
-    session_start();
+    session_set_cookie_params([
+        'httponly' => true,
+        'secure' => false,
+        'samesite' => 'Lax'
+    ]);
 
+    session_start();
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
