@@ -1,13 +1,51 @@
 <?php
 
-$router->get('/alunos', 'AlunoController@index');
+// Rotas de alunos
 
-$router->get('/alunos/create', 'AlunoController@create');
+$router->get(
+    '/alunos',
+    'AlunoController@index'
+);
 
-$router->post('/alunos/store', 'AlunoController@store');
+$router->get(
+    '/alunos/create',
+    'AlunoController@create'
+);
 
-$router->get('/alunos/edit', 'AlunoController@edit');
+$router->post(
+    '/alunos/store',
+    'AlunoController@store'
+);
 
-$router->post('/alunos/update', 'AlunoController@update');
+$router->get(
+    '/alunos/edit',
+    'AlunoController@edit'
+);
 
-$router->get('/alunos/delete', 'AlunoController@delete');
+$router->post(
+    '/alunos/update',
+    'AlunoController@update'
+);
+
+$router->get(
+    '/alunos/delete',
+    'AlunoController@delete'
+);
+
+
+// Rotas de autenticação
+
+$router->get(
+    '/login',
+    'AuthController@login'
+);
+
+$router->post(
+    '/login/autenticar',
+    'AuthController@autenticar'
+);
+
+$router->get(
+    '/logout',
+    'AuthController@logout'
+);
