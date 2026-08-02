@@ -1,7 +1,9 @@
 
+
 <?php
 
-require_once "../Model/Usuario.php";
+
+require_once __DIR__ . "/../Model/Usuario.php";
 
 class AuthController
 {
@@ -15,7 +17,7 @@ class AuthController
     // Exibir tela de login
     public function login()
     {
-        require "../View/auth/login.php";
+        require __DIR__ . "/../View/auth/login.php";
     }
 
     // Realizar autenticação
@@ -62,7 +64,8 @@ class AuthController
             );
         }
 
-        header("Location: /alunos");
+   
+          header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos");
 
         exit;
     }
@@ -74,12 +77,13 @@ class AuthController
     public function logout()
     {
         session_start();
-
-        $_SESSION = [];
+ 
+         $_SESSION = [];
 
         session_destroy();
 
-        header("Location: /login");
+     
+        header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/login");
 
         exit;
     }
