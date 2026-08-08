@@ -27,6 +27,7 @@ if ($uri === '' || $uri === '/') {
 
 $metodo = $_SERVER['REQUEST_METHOD'];
 
+  
 $router->dispatch(
     $metodo,
     $uri,

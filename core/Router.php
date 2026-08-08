@@ -15,8 +15,10 @@ class Router
     }
 
     public function dispatch($metodo, $uri, $pdo)
-    {
-        if (!isset($this->routes[$metodo][$uri])) {
+    {     
+
+	
+         if (!isset($this->routes[$metodo][$uri])) {
             http_response_code(404);
             die("Página não encontrada.");
         }

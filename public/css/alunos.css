@@ -1,0 +1,554 @@
+/* =========================================
+   ALUNOS - SISTEMA DA ACADEMIA
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #F4F7FB;
+    color: #1F2937;
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.alunos-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 260px;
+    background: linear-gradient(
+        180deg,
+        #172B4D,
+        #2563EB
+    );
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 20px;
+    box-shadow: 6px 0 18px rgba(0, 0, 0, .15);
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    text-align: center;
+}
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+}
+
+.logo h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.logo span {
+    font-size: 13px;
+    opacity: .8;
+}
+
+/* =========================================
+   MENU
+========================================= */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 45px;
+}
+
+.menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: .25s;
+}
+
+.menu a:visited {
+    color: #FFFFFF;
+}
+
+.menu a:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, .15);
+}
+
+.menu a i {
+    color: inherit;
+}
+
+.menu .active {
+    background: #FFFFFF;
+    color: #2563EB;
+    font-weight: bold;
+}
+
+.menu .active:hover {
+    background: #FFFFFF;
+    color: #2563EB;
+}
+
+/* =========================================
+   SAIR
+========================================= */
+
+.logout a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: .25s;
+}
+
+.logout a:visited {
+    color: #FFFFFF;
+}
+
+.logout a:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, .15);
+}
+
+.logout a i {
+    color: inherit;
+}
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+.content {
+    flex: 1;
+    padding: 35px;
+    min-width: 0;
+}
+
+/* =========================================
+   TOPO
+========================================= */
+
+.topbar {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 25px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 30px;
+    color: #172B4D;
+    margin-bottom: 6px;
+}
+
+.topbar p {
+    color: #6B7280;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: #172B4D;
+}
+
+.user i {
+    font-size: 36px;
+    color: #2563EB;
+}
+
+/* =========================================
+   PAINEL DE ALUNOS
+========================================= */
+
+.students-panel {
+    background: #FFFFFF;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.panel-header h2 {
+    color: #172B4D;
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.panel-header p {
+    color: #6B7280;
+}
+
+/* =========================================
+   BOTÃO CADASTRAR
+========================================= */
+
+.btn-primary {
+    background: #2563EB;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: .25s;
+    white-space: nowrap;
+}
+
+.btn-primary:visited {
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: #1D4ED8;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, .25);
+}
+
+/* =========================================
+   TABELA
+========================================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+thead {
+    background: #F4F7FB;
+}
+
+th {
+    text-align: left;
+    padding: 16px;
+    color: #172B4D;
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+td {
+    padding: 17px 16px;
+    border-bottom: 1px solid #E5E7EB;
+    color: #4B5563;
+    font-size: 14px;
+}
+
+tbody tr {
+    transition: .2s;
+}
+
+tbody tr:hover {
+    background: #F8FAFC;
+}
+
+/* =========================================
+   NOME DO ALUNO
+========================================= */
+
+.student-name {
+    color: #172B4D;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.student-name i {
+    color: #2563EB;
+    font-size: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* =========================================
+   AÇÕES
+========================================= */
+
+.actions {
+    white-space: nowrap;
+}
+
+.actions a {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    text-decoration: none;
+    margin-right: 6px;
+    transition: .2s;
+}
+
+.btn-edit {
+    background: #EFF6FF;
+    color: #2563EB;
+}
+
+.btn-edit:visited {
+    color: #2563EB;
+}
+
+.btn-edit:hover {
+    background: #2563EB;
+    color: #FFFFFF;
+}
+
+.btn-delete {
+    background: #FEF2F2;
+    color: #DC2626;
+}
+
+.btn-delete:visited {
+    color: #DC2626;
+}
+
+.btn-delete:hover {
+    background: #DC2626;
+    color: #FFFFFF;
+}
+
+/* =========================================
+   NENHUM ALUNO
+========================================= */
+
+.empty {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty i {
+    display: block;
+    font-size: 50px;
+    color: #2563EB;
+    margin-bottom: 15px;
+}
+
+.empty strong {
+    display: block;
+    font-size: 18px;
+    color: #172B4D;
+    margin-bottom: 8px;
+}
+
+.empty span {
+    color: #6B7280;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+    .topbar {
+        padding: 22px;
+    }
+
+    .students-panel {
+        padding: 22px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .alunos-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .menu {
+        margin-top: 25px;
+    }
+
+    .logout {
+        margin-top: 25px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+
+/* =========================================
+   FORMULÁRIO DE ALUNO
+========================================= */
+
+.student-form {
+    width: 100%;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #172B4D;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #D1D5DB;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #1F2937;
+    background: #FFFFFF;
+    outline: none;
+    transition: .2s;
+}
+
+.form-group input:focus {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .10);
+}
+
+.form-group input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #E5E7EB;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 18px;
+    border-radius: 10px;
+    background: #F3F4F6;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.btn-secondary:visited {
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background: #E5E7EB;
+    color: #111827;
+}
+
+.form-actions .btn-primary {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .form-actions a,
+    .form-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+
+}

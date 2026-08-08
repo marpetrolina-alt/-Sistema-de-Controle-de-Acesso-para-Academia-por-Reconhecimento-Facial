@@ -32,6 +32,13 @@ $router->get(
     'AlunoController@delete'
 );
 
+// Dashboard
+
+$router->get(
+    '/dashboard',
+    'DashboardController@index'
+);
+
 
 // Rotas de autenticação
 

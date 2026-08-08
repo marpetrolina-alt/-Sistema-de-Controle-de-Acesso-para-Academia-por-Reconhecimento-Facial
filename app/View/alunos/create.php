@@ -1,81 +1,279 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$nomeUsuario = $_SESSION['usuario_nome'] ?? 'Usuário';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <title>Cadastrar Aluno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Aluno - Academia</title>
+
+    <link rel="stylesheet"
+          href="/teste-github/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/css/alunos.css">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
 
-    <h1>Cadastrar Novo Aluno</h1>
+<div class="alunos-layout">
 
-    <form method="POST" action="/alunos/store">
+    <!-- SIDEBAR -->
 
-        <div>
-            <label>Nome:</label>
-            <input
-                type="text"
-                name="nome"
-                required
-            >
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🏋
+            </div>
+
+            <h2>Academia</h2>
+
+            <span>Sistema de Controle</span>
+
         </div>
 
-        <br>
+        <nav class="menu">
 
-        <div>
-            <label>CPF:</label>
-            <input
-                type="text"
-                name="cpf"
-                required
-            >
+            <a href="/teste-github/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/dashboard">
+
+                <i class="bi bi-house-door-fill"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="/teste-github/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos"
+               class="active">
+
+                <i class="bi bi-people-fill"></i>
+
+                Alunos
+
+            </a>
+
+            <a href="#">
+
+                <i class="bi bi-person-badge-fill"></i>
+
+                Usuários
+
+            </a>
+
+            <a href="#">
+
+                <i class="bi bi-camera-fill"></i>
+
+                Reconhecimento
+
+            </a>
+
+            <a href="#">
+
+                <i class="bi bi-bar-chart-fill"></i>
+
+                Relatórios
+
+            </a>
+
+        </nav>
+
+        <div class="logout">
+
+            <a href="/teste-github/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/logout">
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                Sair
+
+            </a>
+
         </div>
 
-        <br>
+    </aside>
 
-        <div>
-            <label>Telefone:</label>
-            <input
-                type="text"
-                name="telefone"
-            >
-        </div>
 
-        <br>
+    <!-- CONTEÚDO -->
 
-        <div>
-            <label>E-mail:</label>
-            <input
-                type="email"
-                name="email"
-            >
-        </div>
+    <main class="content">
 
-        <br>
+        <header class="topbar">
 
-        <div>
-            <label>Data de nascimento:</label>
-            <input
-                type="date"
-                name="data_nascimento"
-            >
-        </div>
+            <div>
 
-        <br>
+                <h1>Cadastrar Aluno</h1>
 
-        <button type="submit">
-            Cadastrar Aluno
-        </button>
+                <p>Adicione um novo aluno ao sistema.</p>
 
-    </form>
+            </div>
 
-    <br>
+            <div class="user">
 
-    <a href="/alunos">
-        Voltar para lista de alunos
-    </a>
+                <i class="bi bi-person-circle"></i>
+
+                <span>
+                    <?= htmlspecialchars($nomeUsuario) ?>
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- FORMULÁRIO -->
+
+        <section class="students-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>Dados do Aluno</h2>
+
+                    <p>
+                        Preencha as informações abaixo para cadastrar um novo aluno.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form method="POST"
+                  action="/teste-github/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos/store"
+                  class="student-form">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="nome">
+                            Nome completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite o nome completo"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cpf">
+                            CPF
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cpf"
+                            name="cpf"
+                            placeholder="000.000.000-00"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="telefone">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="text"
+                            id="telefone"
+                            name="telefone"
+                            placeholder="(00) 00000-0000"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="aluno@email.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="data_nascimento">
+                            Data de nascimento
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data_nascimento"
+                            name="data_nascimento"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a
+                        href="/teste-github/-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos"
+                        class="btn-secondary"
+                    >
+
+                        <i class="bi bi-arrow-left"></i>
+
+                        Voltar
+
+                    </a>
+
+
+                    <button type="submit"
+                            class="btn-primary">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                        Cadastrar Aluno
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
 
 </body>
 

@@ -1,0 +1,453 @@
+/* =========================================
+   DASHBOARD
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#F4F7FB;
+
+    color:#1F2937;
+
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.dashboard{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar{
+
+    width:260px;
+
+    background:linear-gradient(
+        180deg,
+        #172B4D,
+        #2563EB
+    );
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:30px 20px;
+
+    box-shadow:6px 0 18px rgba(0,0,0,.15);
+
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo{
+
+    text-align:center;
+
+}
+
+.logo-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:38px;
+
+}
+
+.logo h2{
+
+    font-size:28px;
+
+    margin-bottom:5px;
+
+}
+
+.logo span{
+
+    font-size:13px;
+
+    opacity:.8;
+
+}
+
+/* =========================================
+   MENU
+========================================= */
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:45px;
+
+}
+
+.menu a{
+
+    color:#FFFFFF;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 18px;
+
+    border-radius:10px;
+
+    transition:.25s;
+
+}
+
+.menu a:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.menu .active{
+
+    background:#FFFFFF;
+
+    color:#2563EB;
+
+    font-weight:bold;
+
+}
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+.content{
+
+    flex:1;
+
+    padding:35px;
+
+}
+
+/* =========================================
+   TOPO
+========================================= */
+
+.topbar{
+
+    background:#FFFFFF;
+
+    border-radius:16px;
+
+    padding:25px 35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+.topbar h1{
+
+    font-size:30px;
+
+    color:#172B4D;
+
+    margin-bottom:6px;
+
+}
+
+.topbar p{
+
+    color:#6B7280;
+
+}
+
+/* =========================================
+   USUÁRIO
+========================================= */
+
+.user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:600;
+
+    color:#172B4D;
+
+}
+
+.user i{
+
+    font-size:36px;
+
+    color:#2563EB;
+
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.15);
+
+}
+
+/* =========================================
+   ÍCONES DOS CARDS
+========================================= */
+
+.card-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:28px;
+
+}
+
+.blue{
+
+    background:#2563EB;
+
+}
+
+.green{
+
+    background:#16A34A;
+
+}
+
+.red{
+
+    background:#DC2626;
+
+}
+
+.orange{
+
+    background:#EA580C;
+
+}
+
+/* =========================================
+   TEXTO DOS CARDS
+========================================= */
+
+.card-info h3{
+
+    font-size:28px;
+
+    color:#172B4D;
+
+}
+
+.card-info p{
+
+    color:#6B7280;
+
+    margin-top:4px;
+
+}
+
+/* =========================================
+   PAINEL PRINCIPAL
+========================================= */
+
+.panel{
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.panel h2{
+
+    color:#172B4D;
+
+    margin-bottom:20px;
+
+}
+
+.panel p{
+
+    color:#4B5563;
+
+    line-height:1.7;
+
+    margin-bottom:15px;
+
+}
+
+.panel ul{
+
+    margin-left:20px;
+
+    color:#4B5563;
+
+    line-height:2;
+
+}
+
+/* =========================================
+   CORREÇÃO DOS LINKS DO MENU
+========================================= */
+
+.menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.menu a:visited {
+    color: #FFFFFF;
+}
+
+.menu a:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.menu a i {
+    color: inherit;
+}
+
+.menu .active {
+    color: #2563EB;
+    background: #FFFFFF;
+}
+
+.menu .active:hover {
+    color: #2563EB;
+    background: #FFFFFF;
+}
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+.logout a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.logout a:visited {
+    color: #FFFFFF;
+}
+
+.logout a:hover {    
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.logout a i {
+    color: inherit;
+}

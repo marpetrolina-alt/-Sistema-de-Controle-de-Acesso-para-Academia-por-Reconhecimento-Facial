@@ -32,16 +32,18 @@ class AlunoController
     }
 
     // CREATE - Salvar novo aluno
+
     public function store()
-    {
-        $this->verificarLogin();
+{
+    $this->verificarLogin();
 
-        $this->model->cadastrar($_POST);
+    $_POST['cpf'] = trim($_POST['cpf']);
 
-        header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos");
-        exit;
-    }
+    $this->model->cadastrar($_POST);
 
+    header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos");
+    exit;
+}
     // READ - Listar alunos
     public function index()
     {
@@ -65,13 +67,18 @@ class AlunoController
     }
 
     // UPDATE - Atualizar aluno
-    public function update()
-    {
-        $this->verificarLogin();
 
-        $id = $_POST['id'];
+   public function update()
+{
+    $this->verificarLogin();
 
-        $this->model->atualizar($id, $_POST);
+    $id = $_POST['id'];
+
+    $_POST['cpf'] = trim($_POST['cpf']);
+
+    $this->model->atualizar($id, $_POST);
+
+   
 
         header("Location: /-Sistema-de-Controle-de-Acesso-para-Academia-por-Reconhecimento-Facial-main/public/alunos");
         exit;
